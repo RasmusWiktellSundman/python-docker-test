@@ -70,4 +70,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
         directory: ./argocd-test
-        repository: https://github.com/RasmusWiktellSundman/argocd-test.git argocd-test
+        repository: RasmusWiktellSundman/argocd-test.git argocd-test
