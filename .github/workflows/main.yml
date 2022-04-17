@@ -54,13 +54,14 @@ jobs:
     - uses: actions/checkout@v1
     - name: Getting repository
       run: git clone https://github.com/RasmusWiktellSundman/argocd-test.git argocd-test
-    - name: Change directory
-      run: cd argocd-test
     - name: Add text
+      working-directory: ./argocd-test
       run: echo "test" > test.txt
     - name: stage changed files
+      working-directory: ./argocd-test
       run: git add .
     - name: commit changed files
+      working-directory: ./argocd-test
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
@@ -70,3 +71,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
+        directory: ./argocd-test
