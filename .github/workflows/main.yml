@@ -41,7 +41,7 @@ jobs:
           push: true
 
       - name: Output metadata
-        run: echo ${{ steps.docker_build.outputs.* }}
+        run: echo ${{ join(steps.docker_build.outputs.*, '\n') }}
         
   trigger-cd:
     needs: build
