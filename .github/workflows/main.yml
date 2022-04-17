@@ -44,9 +44,14 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
     - name: Getting repository
-      run: git clone https://github.com/RasmusWiktellSundman/argocd-test.git argocd-test
+      uses: actions/checkout@v2
+      with:
+        path: "argocd-test"
+        persist-credentials: false
+        repository: RasmusWiktellSundman/argocd-test
+        token: ${{ secrets.TOKEN2 }}
+        
     - name: Add text
       working-directory: ./argocd-test
       run: echo "test" > test.txt
