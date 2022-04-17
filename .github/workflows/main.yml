@@ -9,7 +9,7 @@ env:
   APP_BACKEND_PATH: '.'
 
 jobs:
-  build-backend-image:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Register variables
@@ -41,12 +41,13 @@ jobs:
           push: true
 
       - name: Output digest
-        run: echo ${{ steps.docker_build.outputs.imageid }}
+        run: echo ${{ steps.docker_build.output }}
 
       - name: Output metadata
-        run: echo ${{ steps.docker_build.outputs.metadata }}
+        run: echo ${{ steps.docker_build.outputs }}
         
   trigger-cd:
+    needs: build
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
