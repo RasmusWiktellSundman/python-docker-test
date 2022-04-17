@@ -40,11 +40,8 @@ jobs:
           tags: ghcr.io/${{ env.IMAGE_REPOSITORY }}/${{ env.IMAGE_BACKEND_NAME }}:latest
           push: true
 
-      - name: Output digest
-        run: echo ${{ steps.docker_build.output }}
-
       - name: Output metadata
-        run: echo ${{ steps.docker_build.outputs }}
+        run: echo ${{ steps.docker_build.outputs.* }}
         
   trigger-cd:
     needs: build
