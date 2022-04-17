@@ -67,7 +67,7 @@ jobs:
     - name: push code to main
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.TOKEN2 }}
         branch: test
         directory: ./argocd-test
         repository: RasmusWiktellSundman/argocd-test
