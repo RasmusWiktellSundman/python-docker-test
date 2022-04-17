@@ -44,7 +44,7 @@ jobs:
         run: echo ${{ github.run_id }}
       
       - name: Output ref
-        run: echo ${{ github.ref }}
+        run: echo ${{ github.action_ref }}
 
   trigger-cd:
     needs: build
