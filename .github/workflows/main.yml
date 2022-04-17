@@ -37,15 +37,8 @@ jobs:
         uses: docker/build-push-action@v2
         with: 
           context: ${{ env.APP_BACKEND_PATH }}
-          tags: ghcr.io/${{ env.IMAGE_REPOSITORY }}/${{ env.IMAGE_BACKEND_NAME }}:latest
+          tags: ghcr.io/${{ env.IMAGE_REPOSITORY }}/${{ env.IMAGE_BACKEND_NAME }}:${{ github.run_number }}
           push: true
-
-      - name: Output metadata
-        run: echo ${{ github.run_number }}
-      
-      - name: Output ref
-        run: echo ${{ github.action_ref }}
-
   trigger-cd:
     needs: build
     # The type of runner that the job will run on
@@ -57,6 +50,8 @@ jobs:
     - name: Add text
       working-directory: ./argocd-test
       run: echo "test" > test.txt
+    - name: Rewrite id
+      run: echo ${{ github.run_number }}
     - name: stage changed files
       working-directory: ./argocd-test
       run: git add .
