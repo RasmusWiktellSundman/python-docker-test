@@ -56,7 +56,7 @@ jobs:
       working-directory: ./argocd-test
       run: echo "test" > test.txt
     - name: Rewrite id
-      run: echo ${{ github.run_number }}
+      run: sed -r 's/test-app:.+/test-app:{ github.run_number }/g' dev/deployment.yaml
     - name: stage changed files
       working-directory: ./argocd-test
       run: git add .
