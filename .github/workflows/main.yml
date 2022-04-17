@@ -41,7 +41,7 @@ jobs:
           push: true
 
       - name: Output metadata
-        run: echo ${{ ggithub.run_number }}
+        run: echo ${{ github.run_number }}
       
       - name: Output ref
         run: echo ${{ github.action_ref }}
