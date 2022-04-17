@@ -41,7 +41,7 @@ jobs:
           push: true
 
       - name: Output metadata
-        run: echo ${{ steps.docker_build.outputs.imageid }}
+        run: echo ${{ steps.docker_build.outputs.metadata }}
         
   trigger-cd:
     needs: build
