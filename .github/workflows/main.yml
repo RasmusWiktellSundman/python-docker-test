@@ -55,6 +55,9 @@ jobs:
     - name: stage changed files
       working-directory: ./argocd-test
       run: git add .
+    - name: list
+      working-directory: ./argocd-test
+      run: ls
     - name: commit changed files
       working-directory: ./argocd-test
       run: |
