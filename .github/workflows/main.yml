@@ -41,7 +41,7 @@ jobs:
           push: true
 
       - name: Output digest
-        run: echo ${{ steps.docker_build.output.digest }}
+        run: echo ${{ steps.docker_build.output.imageid }}
 
       - name: Output metadata
         run: echo ${{ steps.docker_build.output.metadata }}
