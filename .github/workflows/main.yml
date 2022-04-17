@@ -54,7 +54,7 @@ jobs:
         token: ${{ secrets.TOKEN }}
         
     - name: Rewrite id
-      run: sed -r 's/test-app:.+/test-app:${{ github.run_number }}/g' -i dev/deployment.yaml
+      run: ${{ format("sed -r 's/test-app:.+/test-app:{0}/g' -i dev/deployment.yaml",  github.run_number) }}
       working-directory: ./argocd-test
       
     - name: stage changed files
