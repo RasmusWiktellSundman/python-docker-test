@@ -1,3 +1,3 @@
 USERS = {
-    'api': 'apikey',
+    'api': 'apikey2',
 }
