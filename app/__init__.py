@@ -12,5 +12,3 @@ from .common import auth_utils
 
 from .resources import test
 api.add_resource(test.Test, '/test/<message>')
-api.add_resource(test.Test, '/bingoo/is/<message>')
-api.add_resource(test.Test, '/thenerdyhamster/is/<message>')
